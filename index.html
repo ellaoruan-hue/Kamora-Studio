@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Kamora Studios — creating worlds worth getting lost in. Original animation, characters, stories and cinematic experiences.">
+  <title>Kamora Studios — Creating Worlds Worth Getting Lost In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --obsidian:#111111; --mocha:#6B4A3A; --rose:#B77B7F;
+      --gold:#C8A96B; --cream:#F4EDE3; --muted:#bdb0a4;
+      --line:rgba(244,237,227,.13); --glass:rgba(255,255,255,.055);
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--obsidian);color:var(--cream);font-family:Manrope,system-ui,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(17,17,17,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(244,237,227,.08)}
+    .nav-inner{max-width:var(--max);margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-family:"Cormorant Garamond",serif;font-size:27px;letter-spacing:.12em}
+    .brand-mark{width:31px;height:31px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:serif;font-size:19px}
+    .links{display:flex;gap:27px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+    .links a{opacity:.76;transition:.25s}.links a:hover{opacity:1;color:var(--gold)}
+    .menu{display:none;background:none;border:1px solid var(--line);color:var(--cream);padding:8px 11px;border-radius:10px}
+    .hero{min-height:100vh;display:grid;place-items:center;position:relative;overflow:hidden;padding:130px 24px 80px;background:
+      radial-gradient(circle at 50% 38%,rgba(200,169,107,.12),transparent 22%),
+      radial-gradient(circle at 68% 65%,rgba(183,123,127,.10),transparent 24%),
+      linear-gradient(180deg,#0b0b0c 0%,#111111 65%,#16110f 100%)}
+    .hero:before{content:"";position:absolute;width:700px;height:700px;border:1px solid rgba(200,169,107,.12);border-radius:50%;box-shadow:0 0 100px rgba(200,169,107,.06);animation:spin 26s linear infinite}
+    .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(183,123,127,.16);border-radius:50%;animation:spin 18s linear infinite reverse}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:900px}
+    .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    h1{font-family:"Cormorant Garamond",serif;font-size:clamp(72px,13vw,156px);line-height:.8;margin:0;letter-spacing:.08em;font-weight:600}
+    .hero .sub{font-size:clamp(18px,2.2vw,25px);color:var(--muted);margin:30px auto 34px;max-width:650px}
+    .cta{display:inline-flex;gap:12px;align-items:center;padding:14px 21px;border:1px solid rgba(200,169,107,.55);border-radius:999px;color:var(--cream);font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+    .cta:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+    .cta.secondary{border-color:var(--line);margin-left:8px}
+    .scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#8f8379}
+    section{padding:110px 24px}
+    .wrap{max-width:var(--max);margin:auto}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:45px}
+    .kicker{color:var(--rose);font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+    h2{font-family:"Cormorant Garamond",serif;font-size:clamp(46px,6vw,74px);line-height:1;margin:8px 0 0;font-weight:600}
+    .intro{max-width:510px;color:var(--muted);font-size:15px}
+    .studio{background:linear-gradient(180deg,#111 0%,#15110f 100%)}
+    .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}
+    .story-copy p{color:var(--muted);font-size:16px;max-width:650px}
+    .manifesto{border:1px solid var(--line);padding:36px;background:linear-gradient(135deg,rgba(107,74,58,.18),rgba(183,123,127,.06));border-radius:28px}
+    .manifesto strong{display:block;font-family:"Cormorant Garamond",serif;font-size:36px;line-height:1.1;color:var(--cream);font-weight:500}
+    .manifesto span{display:block;margin-top:18px;color:var(--gold);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{min-height:290px;border:1px solid var(--line);border-radius:24px;padding:26px;position:relative;overflow:hidden;background:var(--glass);transition:transform .35s,border-color .35s}
+    .card:hover{transform:translateY(-6px);border-color:rgba(200,169,107,.45)}
+    .card:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-70px;bottom:-70px;background:radial-gradient(circle,rgba(200,169,107,.2),transparent 68%)}
+    .num{font-size:11px;color:var(--gold);letter-spacing:.18em}
+    .card h3{font-family:"Cormorant Garamond",serif;font-size:35px;margin:38px 0 9px}
+    .card p{color:var(--muted);font-size:14px}
+    .originals{background:#0e0e0f}
+    .ip-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .ip{min-height:390px;border-radius:28px;padding:34px;position:relative;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(circle at 70% 25%,rgba(183,123,127,.2),transparent 25%),
+      linear-gradient(135deg,#1b1514,#111)}
+    .ip:nth-child(2){background:radial-gradient(circle at 30% 25%,rgba(200,169,107,.18),transparent 26%),linear-gradient(135deg,#151312,#111)}
+    .tag{display:inline-block;padding:7px 10px;border:1px solid var(--line);border-radius:999px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+    .ip h3{font-family:"Cormorant Garamond",serif;font-size:55px;margin:85px 0 5px}
+    .ip p{max-width:440px;color:var(--muted)}
+    .ip .small{position:absolute;bottom:24px;left:34px;color:#897c72;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+    .cinema{background:linear-gradient(180deg,#111,#17110f)}
+    .cinema-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .cinema img{width:100%;display:block;border-radius:22px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+    .cinema p{color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:35px}
+    .step{padding:22px;border-top:1px solid var(--gold)}
+    .step b{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:500}.step p{color:var(--muted);font-size:12px}
+    .contact{background:#0c0c0c;text-align:center}
+    .contact h2{max-width:800px;margin:10px auto 18px}
+    .contact p{max-width:580px;margin:0 auto 28px;color:var(--muted)}
+    footer{border-top:1px solid var(--line);padding:30px 24px;color:#877a70;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+    .foot{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;gap:20px}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.reveal.show{opacity:1;transform:none}
+    @media(max-width:800px){
+      .links{display:none}.menu{display:block}.links.open{position:absolute;display:flex;flex-direction:column;top:70px;right:18px;background:#161313;border:1px solid var(--line);padding:20px;border-radius:16px}
+      .story-grid,.cinema-grid,.ip-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}
+      .section-head{display:block}.intro{margin-top:18px}.hero:before{width:450px;height:450px}.hero:after{width:280px;height:280px}
+    }
+    @media(max-width:480px){section{padding:80px 18px}.nav-inner{padding:15px 18px}.steps{grid-template-columns:1fr}h1{font-size:66px}.ip h3{font-size:47px}.cta.secondary{margin-left:0;margin-top:10px}.foot{display:block}.foot span{display:block;margin-top:8px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home"><span class="brand-mark">K</span><span>KAMORA</span></a>
+      <button class="menu" aria-label="Open menu">MENU</button>
+      <div class="links">
+        <a href="#studio">Studio</a><a href="#originals">Originals</a><a href="#worlds">Worlds</a><a href="#process">Process</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow">Kamora Studios · Animation & Entertainment</div>
+        <h1>KAMORA</h1>
+        <p class="sub">Creating worlds worth getting lost in.</p>
+        <a class="cta" href="#originals">Explore our worlds ↓</a>
+        <a class="cta secondary" href="#studio">Meet Kamora</a>
+      </div>
+      <div class="scroll">Scroll to enter</div>
+    </section>
+
+    <section class="studio" id="studio">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">01 · The Studio</div><h2>Stories become worlds.</h2></div>
+          <p class="intro">Kamora Studios is an independent animation and entertainment brand developing original characters, stories and cinematic experiences.</p>
+        </div>
+        <div class="story-grid">
+          <div class="story-copy reveal">
+            <p>We believe animation can be funny, emotional, strange, beautiful and unforgettable—all at once. Kamora exists to turn bold ideas into characters audiences care about and worlds they want to return to.</p>
+            <p>Our first chapter is focused on original short-form animation, world-building and experimental storytelling, with room to grow into series, films, music, interactive experiences and merchandise.</p>
+          </div>
+          <div class="manifesto reveal">
+            <strong>“Every world starts with an idea.”</strong>
+            <span>Kamora creative principle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="worlds">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">02 · What We Make</div><h2>Built for imagination.</h2></div>
+          <p class="intro">A creative house designed to grow from short videos into a full original entertainment universe.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal"><span class="num">01 / SERIES</span><h3>Animated Stories</h3><p>Short-form episodes and future long-form series built around original characters and memorable worlds.</p></article>
+          <article class="card reveal"><span class="num">02 / WORLDS</span><h3>Original Universes</h3><p>Distinct visual worlds with their own rules, moods, histories and stories waiting to be explored.</p></article>
+          <article class="card reveal"><span class="num">03 / EXPERIENCES</span><h3>Beyond Animation</h3><p>Music, interactive projects, merchandise and other ways for audiences to step inside the story.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="originals" id="originals">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">03 · Originals</div><h2>The first worlds.</h2></div>
+          <p class="intro">Original concepts currently being developed under the Kamora banner.</p>
+        </div>
+        <div class="ip-grid">
+          <article class="ip reveal">
+            <span class="tag">In Development · Character Universe</span>
+            <h3>NYX</h3>
+            <p>A futuristic adventure concept centered on a mysterious heroine, a magical guitar, an energy sword and a world where music can become power.</p>
+            <span class="small">Original concept · Kamora Studios</span>
+          </article>
+          <article class="ip reveal">
+            <span class="tag">In Development · Comedy Series</span>
+            <h3>Hallway</h3>
+            <p>A fast, funny animated world following Amy, Mickie and Alex through school-life chaos, friendship, drama and the everyday disasters of being young.</p>
+            <span class="small">Original concept · Kamora Studios</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cinema">
+      <div class="wrap cinema-grid">
+        <div class="reveal">
+          <div class="kicker">04 · The Kamora Ident</div>
+          <h2>Every story has an entrance.</h2>
+          <p>The Kamora cinematic ident begins in darkness, finds a single point of light, opens a portal and reveals the studio mark before the story begins.</p>
+          <div class="steps" id="process">
+            <div class="step"><b>01</b><p>Light appears.</p></div>
+            <div class="step"><b>02</b><p>The portal forms.</p></div>
+            <div class="step"><b>03</b><p>The emblem emerges.</p></div>
+            <div class="step"><b>04</b><p>The world opens.</p></div>
+          </div>
+        </div>
+        <div class="reveal"><img src="assets/kamora-cinematic-logo.png" alt="Kamora Studios cinematic logo concept"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap reveal">
+        <div class="kicker">05 · The Beginning</div>
+        <h2>There are worlds we haven't created yet.</h2>
+        <p>Kamora is only at the beginning. Follow the studio as its characters, stories and worlds come to life.</p>
+        <a class="cta" href="mailto:hello@kamorastudios.com">Contact Kamora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot"><span>© 2026 Kamora Studios</span><span>Creating Worlds Worth Getting Lost In.</span></div>
+  </footer>
+
+  <script>
+    const menu=document.querySelector('.menu'), links=document.querySelector('.links');
+    menu.addEventListener('click',()=>links.classList.toggle('open'));
+    document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
